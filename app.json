@@ -3,11 +3,17 @@
     "name": "my-app",
     "slug": "my-app",
     "version": "1.0.0",
+    "owner": "razador",
+    "ios": {
+      "bundleIdentifier": "com.razador.myapp"
+    },
+    "android": {
+      "package": "com.razador.myapp"
+    },
     "extra": {
       "eas": {
         "projectId": "f1d99d04-9992-4f37-99eb-c0b4e98fac81"
       }
-    },
-    "owner": "razador"
+    }
   }
 }
