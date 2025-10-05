@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "my-app",
+    "slug": "my-app",
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "c0f34b7d-e7c6-440e-ab9d-b6438c005f1a"
+      }
+    },
+    "owner": "razador"
+  }
+}
