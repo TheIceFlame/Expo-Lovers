@@ -1,29 +1,23 @@
 workflows:
-  expo-build:
+  expo-workflow:
     name: Expo Build Workflow
-    max_build_duration: 60
     environment:
-      vars:
-        EXPO_TOKEN:
-          value: $EXPO_TOKEN
-      node: 20
-      flutter: none
-      xcode: latest
-      cocoapods: default
+      groups:
+        - expo-secrets 
     scripts:
       - name: Install dependencies
         script: |
-          npm install -g expo-cli
+          npm install -g eas-cli
           npm install
       - name: Login to Expo
         script: |
-          echo $EXPO_TOKEN | expo login --token
-      - name: Build Expo app
+          echo $EXPO_TOKEN | eas login --token
+      - name: Build iOS IPA
         script: |
-          # For iOS IPA
-          expo build:ios --non-interactive --no-wait
-          # For Android APK
-          expo build:android --non-interactive --no-wait
+          eas build --platform ios --non-interactive --profile production
+      - name: Build Android APK
+        script: |
+          eas build --platform android --non-interactive --profile production
     artifacts:
       - build/**/*.ipa
       - build/**/*.apk
